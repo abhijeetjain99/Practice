@@ -1,0 +1,59 @@
+public static void prntallnum()
+        {
+            Console.Write("Enter your range:");
+            int N = Int32.Parse(Console.ReadLine());
+            bool flag = false;
+
+
+            if (N <= 3)
+            {
+
+                if (N == 1)
+                {
+                    Console.WriteLine("1 is not a prime number");
+
+                }
+                else if (N == 2)
+                {
+                    Console.WriteLine(N);
+                    Console.WriteLine("Number of prime numbers:{0}", 1);
+                }
+                else
+                {
+                    Console.WriteLine((N - 1) + "," + N);
+                    Console.WriteLine("Number of prime numbers:{0}", 2);
+                }
+            }
+            else
+            {
+                int count = 2;
+                Console.Write(2 + "," + 3);
+                for (int n = 4; n <= N; n++)
+                {
+                    for (int i = 2; i <= n / 2; i++)
+                    {
+                        if (n % i != 0)
+                        {
+                            flag = true;
+                        }
+                        else
+                        {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag == true)
+                    {
+                        Console.Write("," + n);
+                        count++;
+                    }
+
+                }
+
+                Console.WriteLine("\nNumber of prime numbers:{0}", count);
+
+            }
+
+        }
+
+    }
