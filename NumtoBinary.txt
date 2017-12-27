@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+
+public class GFG
+{
+    static public void Main()
+    {
+        numToBinary();
+    }
+
+    public static void numToBinary()
+    {
+        Console.Write("Please give ur input number: ");
+
+        int n = Int32.Parse(Console.ReadLine()), n1 = n;
+
+        Stack<int> myStack = new Stack<int>();
+
+        for (int i = 0; i <= n1; i++)
+        {
+            if (n / 2 != 1)
+            {
+                myStack.Push(n % 2);
+                n = n / 2;
+            }
+            else
+            {
+                myStack.Push(n % 2);
+                myStack.Push(n / 2);
+                break;
+            }
+        }
+
+        while (myStack.Count > 0)
+        {
+            Console.Write(myStack.Pop());
+        }
+    }
+}
