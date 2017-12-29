@@ -32,10 +32,11 @@ def infixToPostfix(exp):
                     stack.append(stackTop)          # push to stack if precedence 
                     stack.append(token)             # higher than top of stack
                 else:
-                    while prec[token] <= prec[stackTop] and stackTop != '(' :
+                    while prec[token] <= prec[stackTop] and stackTop != '(' and stack != []:
                         result += ' ' + stackTop    # Popping stack until a operator with
                         stackTop = stack.pop()      # lower precedence is found
-                    stack.append('(')
+                    stack.append(stackTop)          
+                    stack.append(token)             # Pushing the token
         else:
             result += ' ' + token                   # Push operands to result
                 
